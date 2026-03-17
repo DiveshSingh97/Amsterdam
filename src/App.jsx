@@ -1,10 +1,11 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import { DAYS, POLLS } from './data/tripData'
 import { useVotes, usePolls, useWeather } from './hooks/useTrip'
 import DayCard from './components/DayCard'
 import Poll from './components/Poll'
 import BobbyTips from './components/BobbyTips'
 import Brussels from './Brussels'
+import Calendar from './Calendar'
 
 const ROUTES = [
   {
@@ -122,6 +123,20 @@ function Amsterdam() {
           }}>
             💱 All prices in EUR + ZAR · Live rate: €1 ≈ R19 (March 2026)
           </div>
+          <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', gap: 10, flexWrap: 'wrap' }}>
+            <Link to="/calendar" style={{
+              display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 600,
+              padding: '10px 22px', borderRadius: 10, textDecoration: 'none',
+              background: 'rgba(255,255,255,0.12)', color: '#F8F3EC',
+              border: '1px solid rgba(255,255,255,0.25)',
+            }}>📅 View Full Calendar</Link>
+            <a href="/brussels" style={{
+              display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 600,
+              padding: '10px 22px', borderRadius: 10, textDecoration: 'none',
+              background: 'rgba(27,67,50,0.5)', color: '#F8F3EC',
+              border: '1px solid rgba(255,255,255,0.2)',
+            }}>🇧🇪 Brussels Extension</a>
+          </div>
         </div>
       </div>
 
@@ -147,6 +162,14 @@ function Amsterdam() {
           border: '1px solid rgba(255,255,255,0.12)', whiteSpace: 'nowrap', flexShrink: 0,
           transition: 'all 0.15s',
         }}>🗳️ Polls</a>
+        {/* Calendar pill */}
+        <Link to="/calendar" style={{
+          display: 'inline-flex', alignItems: 'center', gap: 5,
+          textDecoration: 'none', fontSize: 13, fontWeight: 500,
+          color: 'rgba(248,243,236,0.65)', padding: '8px 14px', borderRadius: 8,
+          border: '1px solid rgba(255,255,255,0.12)', whiteSpace: 'nowrap', flexShrink: 0,
+          transition: 'all 0.15s',
+        }}>📅 Calendar</Link>
         <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.1)', margin: '0 4px', flexShrink: 0 }} />
         {/* Day bubbles */}
         {DAYS.map(d => (
@@ -398,6 +421,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Amsterdam />} />
       <Route path="/brussels" element={<Brussels />} />
+      <Route path="/calendar" element={<Calendar />} />
     </Routes>
   )
 }

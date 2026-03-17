@@ -221,6 +221,7 @@ export const DAYS = [
     weather: { icon: '🌤️', high: 12, low: 6, desc: 'Marginally warmer — the warmest morning of the trip at 12°C. Still jacket weather for Durban people but a decent send-off day.', badge: 'fine', wear: '👕 Jacket still needed but you can probably skip the heavy mid-layer.' },
     activities: [
       { icon: '☕', time: 'Morning', title: 'Coffee by the canals + Oosterpark walk', detail: "Ruby Emma is close to Oosterpark. Allow 50–60 min to Schiphol by train — don't cut it close.", booking: 'easy', bookingText: 'No booking needed' },
+      { icon: '🚆', time: 'Morning', title: 'Divesh & Mom — Eurostar to Brussels (not flying today)', detail: 'While the group flies home from Schiphol, Divesh and his mom take the Eurostar from Amsterdam Centraal to Brussels Midi. ~1h 52min. See the Brussels page for the full plan.', booking: 'now', bookingText: 'Book at eurostar.com — from ~€29', bookingUrl: 'https://www.eurostar.com/us-en/train/amsterdam-to-brussels' },
       { icon: '✈️', time: 'Depart', title: 'Train to Schiphol Airport', detail: 'Tram 14 to Centraal (~8 min) then direct Sprinter to Schiphol (~17 min). Runs every 10 min. Allow 90 min before your flight.', booking: 'easy', bookingText: 'No booking needed', directionsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Amsterdam+Airport+Schiphol&travelmode=transit' },
     ],
     extras: [
