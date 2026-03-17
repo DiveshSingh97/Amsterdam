@@ -133,12 +133,12 @@ export default function BobbyTips() {
         <div style={{ width: 140, flexShrink: 0, background: '#3d2b1f' }}>
           <img src="/bobby.png" alt="Bobby — Official Trip Advisor" style={{ width: 140, height: 140, objectFit: 'cover', display: 'block' }} />
         </div>
-        <div style={{ flex: 1, padding: '20px 24px', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
-          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 30, fontWeight: 700, color: '#F8F3EC', lineHeight: 1.1 }}>
+        <div style={{ flex: 1, padding: '22px 26px', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 34, fontWeight: 700, color: '#F8F3EC', lineHeight: 1.1 }}>
             Bobby's Tips
             <span style={{ fontStyle: 'italic', color: '#D94F3D' }}> — Official Trip Advisor</span>
           </div>
-          <div style={{ fontSize: 12, color: 'rgba(248,243,236,0.45)', marginTop: 4 }}>
+          <div style={{ fontSize: 13, color: 'rgba(248,243,236,0.45)', marginTop: 6 }}>
             Essential intel before you leave. {open ? '▲ Collapse' : '▼ Expand'}
           </div>
         </div>
@@ -146,19 +146,19 @@ export default function BobbyTips() {
 
       {/* Body */}
       {open && (
-        <div style={{ padding: '0 24px 24px' }}>
+        <div style={{ padding: '0 26px 26px' }}>
 
           {/* eSIM highlight */}
           <div style={{
-            marginTop: 16, background: 'rgba(184,134,11,0.12)', border: '1px solid rgba(184,134,11,0.25)',
-            borderRadius: 12, padding: '14px 16px', display: 'flex', gap: 14,
+            marginTop: 18, background: 'rgba(184,134,11,0.12)', border: '1px solid rgba(184,134,11,0.25)',
+            borderRadius: 12, padding: '16px 18px', display: 'flex', gap: 14,
           }}>
-            <span style={{ fontSize: 22, flexShrink: 0 }}>📱</span>
+            <span style={{ fontSize: 24, flexShrink: 0 }}>📱</span>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: '#e6c060', marginBottom: 3 }}>
+              <div style={{ fontSize: 15, fontWeight: 600, color: '#e6c060', marginBottom: 4 }}>
                 Buy your eSIM before you fly — don't roam
               </div>
-              <div style={{ fontSize: 13, color: 'rgba(248,243,236,0.6)', lineHeight: 1.65 }}>
+              <div style={{ fontSize: 14, color: 'rgba(248,243,236,0.6)', lineHeight: 1.7 }}>
                 If your phone supports eSIM, buy a European data plan through{' '}
                 <a href="https://www.airalo.com" target="_blank" rel="noreferrer"
                   style={{ color: '#e6c060', fontWeight: 600, borderBottom: '1px solid rgba(230,192,96,0.4)', textDecoration: 'none' }}>
@@ -170,21 +170,21 @@ export default function BobbyTips() {
           </div>
 
           {/* Tips grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginTop: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginTop: 14 }}>
             {TIPS.filter(t => t.title !== "eSIM — Buy Before You Fly").map((tip, i) => (
               <div key={i} style={{
                 background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 12, padding: '14px 16px',
+                borderRadius: 12, padding: '16px 18px',
               }}>
-                <div style={{ fontSize: 20, marginBottom: 6 }}>{tip.icon}</div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#F8F3EC', marginBottom: 4 }}>{tip.title}</div>
+                <div style={{ fontSize: 22, marginBottom: 8 }}>{tip.icon}</div>
+                <div style={{ fontSize: 15, fontWeight: 600, color: '#F8F3EC', marginBottom: 6 }}>{tip.title}</div>
                 <div style={{
-                  fontSize: 13, color: 'rgba(248,243,236,0.6)', lineHeight: 1.65,
+                  fontSize: 14, color: 'rgba(248,243,236,0.6)', lineHeight: 1.7,
                   listStyleType: 'none',
                 }}>
                   <style>{`
                     .bobby-tip-content ul { list-style: none; padding: 0; margin: 0; }
-                    .bobby-tip-content ul li { padding-left: 12px; position: relative; margin-bottom: 3px; }
+                    .bobby-tip-content ul li { padding-left: 14px; position: relative; margin-bottom: 4px; }
                     .bobby-tip-content ul li::before { content: '·'; position: absolute; left: 0; color: #D94F3D; }
                     .bobby-tip-content strong { color: #F8F3EC; }
                     .bobby-tip-content a { color: #e6c060; text-decoration: none; border-bottom: 1px solid rgba(230,192,96,0.3); }

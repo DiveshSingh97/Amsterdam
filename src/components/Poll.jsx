@@ -4,12 +4,12 @@ export default function Poll({ poll, pollData, onVote }) {
 
   return (
     <div style={{
-      background: '#1C1C1C', borderRadius: 14, padding: '18px 20px', marginBottom: 16,
+      background: '#1C1C1C', borderRadius: 14, padding: '20px 22px', marginBottom: 16,
     }}>
-      <div style={{ fontSize: 14, fontWeight: 600, color: '#F8F3EC', marginBottom: 12, lineHeight: 1.65 }}>
+      <div style={{ fontSize: 16, fontWeight: 600, color: '#F8F3EC', marginBottom: 14, lineHeight: 1.65 }}>
         🗳️ {poll.question}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {poll.options.map(opt => {
           const count = pollData?.[opt.id] || 0
           const pct = total > 0 ? Math.round((count / total) * 100) : 0
@@ -23,8 +23,8 @@ export default function Poll({ poll, pollData, onVote }) {
                 position: 'relative', overflow: 'hidden',
                 background: isVoted ? 'rgba(184,134,11,0.15)' : 'rgba(255,255,255,0.06)',
                 border: `1.5px solid ${isVoted ? 'rgba(184,134,11,0.5)' : 'rgba(255,255,255,0.1)'}`,
-                borderRadius: 10, padding: '10px 14px',
-                cursor: 'pointer', textAlign: 'left',
+                borderRadius: 10, padding: '12px 16px',
+                cursor: 'pointer', textAlign: 'left', minHeight: 44,
                 transition: 'all 0.15s', fontFamily: "'Outfit', sans-serif",
               }}
             >
@@ -39,13 +39,13 @@ export default function Poll({ poll, pollData, onVote }) {
               )}
               <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <div style={{ fontSize: 14, fontWeight: isVoted ? 600 : 400, color: isVoted ? '#e6c060' : '#F8F3EC' }}>
+                  <div style={{ fontSize: 15, fontWeight: isVoted ? 600 : 400, color: isVoted ? '#e6c060' : '#F8F3EC' }}>
                     {isVoted && '✓ '}{opt.label}
                   </div>
-                  {opt.desc && <div style={{ fontSize: 11, color: 'rgba(248,243,236,0.45)', marginTop: 2 }}>{opt.desc}</div>}
+                  {opt.desc && <div style={{ fontSize: 13, color: 'rgba(248,243,236,0.45)', marginTop: 3 }}>{opt.desc}</div>}
                 </div>
                 {total > 0 && (
-                  <div style={{ fontSize: 12, color: isVoted ? '#e6c060' : 'rgba(248,243,236,0.5)', fontWeight: 500, flexShrink: 0, marginLeft: 12 }}>
+                  <div style={{ fontSize: 13, color: isVoted ? '#e6c060' : 'rgba(248,243,236,0.5)', fontWeight: 500, flexShrink: 0, marginLeft: 12 }}>
                     {pct}% ({count})
                   </div>
                 )}
@@ -55,7 +55,7 @@ export default function Poll({ poll, pollData, onVote }) {
         })}
       </div>
       {total > 0 && (
-        <div style={{ fontSize: 11, color: 'rgba(248,243,236,0.3)', marginTop: 8, textAlign: 'right' }}>
+        <div style={{ fontSize: 12, color: 'rgba(248,243,236,0.3)', marginTop: 10, textAlign: 'right' }}>
           {total} {total === 1 ? 'vote' : 'votes'} total
         </div>
       )}

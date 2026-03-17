@@ -126,33 +126,53 @@ function Amsterdam() {
       </div>
 
       {/* NAV */}
-      <div style={{
+      <div className="nav-scroll" style={{
         background: '#1C1C1C', borderTop: '1px solid rgba(255,255,255,0.07)',
-        padding: '12px 20px', display: 'flex', gap: 8, overflowX: 'auto',
-        scrollbarWidth: 'none', justifyContent: 'center', flexWrap: 'wrap',
-        position: 'sticky', top: 0, zIndex: 50,
+        padding: '0 12px', display: 'flex', gap: 4, overflowX: 'auto',
+        position: 'sticky', top: 0, zIndex: 100, minHeight: 56, alignItems: 'center',
       }}>
-        {[{ href: '#bobby', label: "Bobby's Tips" }, ...DAYS.map(d => ({ href: `#${d.id}`, label: `${d.date} Apr` }))].map(item => (
-          <a key={item.href} href={item.href} style={{
-            textDecoration: 'none', fontSize: 12, fontWeight: 500, letterSpacing: 0.5,
-            color: 'rgba(248,243,236,0.5)', padding: '6px 16px', borderRadius: 999,
-            border: '1px solid rgba(255,255,255,0.1)', whiteSpace: 'nowrap',
-            transition: 'all 0.15s', minHeight: 44, display: 'inline-flex', alignItems: 'center',
+        {/* Tips pill */}
+        <a href="#bobby" style={{
+          display: 'inline-flex', alignItems: 'center', gap: 5,
+          textDecoration: 'none', fontSize: 13, fontWeight: 500,
+          color: 'rgba(248,243,236,0.65)', padding: '8px 14px', borderRadius: 8,
+          border: '1px solid rgba(255,255,255,0.12)', whiteSpace: 'nowrap', flexShrink: 0,
+          transition: 'all 0.15s',
+        }}>💡 Tips</a>
+        {/* Polls pill */}
+        <a href="#polls" style={{
+          display: 'inline-flex', alignItems: 'center', gap: 5,
+          textDecoration: 'none', fontSize: 13, fontWeight: 500,
+          color: 'rgba(248,243,236,0.65)', padding: '8px 14px', borderRadius: 8,
+          border: '1px solid rgba(255,255,255,0.12)', whiteSpace: 'nowrap', flexShrink: 0,
+          transition: 'all 0.15s',
+        }}>🗳️ Polls</a>
+        <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.1)', margin: '0 4px', flexShrink: 0 }} />
+        {/* Day bubbles */}
+        {DAYS.map(d => (
+          <a key={d.id} href={`#${d.id}`} style={{
+            display: 'inline-flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            textDecoration: 'none', minWidth: 52, padding: '6px 8px', borderRadius: 8, flexShrink: 0,
+            color: 'rgba(248,243,236,0.55)', border: '1px solid rgba(255,255,255,0.08)',
+            transition: 'all 0.15s', gap: 1,
           }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#F8F3EC'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(248,243,236,0.5)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#F8F3EC'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(248,243,236,0.55)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.background = '' }}
           >
-            {item.label}
+            <span style={{ fontSize: 14, fontWeight: 700, lineHeight: 1 }}>{d.date}</span>
+            <span style={{ fontSize: 10, letterSpacing: '0.1em', opacity: 0.5 }}>
+              {d.dow.split(' · ')[0].slice(0, 3).toUpperCase()}
+            </span>
           </a>
         ))}
       </div>
 
       {/* MAIN CONTENT */}
-      <div style={{ maxWidth: 860, margin: '0 auto', padding: '40px 20px 80px', fontSize: 15 }}>
+      <div className="main-pad" style={{ maxWidth: 860, margin: '0 auto', padding: '40px 20px 80px', fontSize: 15 }}>
 
         {/* Booking key */}
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 36, padding: '18px 20px', background: '#fff', border: '1px solid #E8E0D0', borderRadius: 12 }}>
-          <div style={{ width: '100%', fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', color: '#999', marginBottom: 4 }}>Booking urgency guide</div>
+          <div style={{ width: '100%', fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', color: '#999', marginBottom: 4 }}>Booking urgency guide</div>
           {[
             { style: { color: '#C0392B', border: '#f0b0a8', bg: '#FFF5F5', dot: '#C0392B' }, label: 'Book TODAY — fills weeks out' },
             { style: { color: '#D4860A', border: '#f0d0a0', bg: '#FFFBF0', dot: '#D4860A' }, label: 'Book this week — filling fast' },
@@ -166,7 +186,7 @@ function Amsterdam() {
         </div>
 
         {/* Getting Around */}
-        <div style={{ background: '#1C1C1C', color: '#F8F3EC', borderRadius: 16, padding: 26, marginBottom: 30 }}>
+        <div style={{ background: '#1C1C1C', color: '#F8F3EC', borderRadius: 16, padding: 26, marginBottom: 40 }}>
           <div style={{ display: 'flex', gap: 14, marginBottom: 16 }}>
             <span style={{ fontSize: 28, flexShrink: 0 }}>🚇</span>
             <div>
@@ -186,7 +206,7 @@ function Amsterdam() {
                   <div key={mi} style={{ marginBottom: mi < route.modes.length - 1 ? 12 : 0 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                       <span style={{
-                        fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 999, flexShrink: 0,
+                        fontSize: 12, fontWeight: 700, padding: '3px 10px', borderRadius: 999, flexShrink: 0,
                         background: mode.type === 'Walk' ? 'rgba(46,125,82,0.3)' : 'rgba(30,95,180,0.3)',
                         color: mode.type === 'Walk' ? '#5DD99A' : '#7BC4FF',
                         border: `1px solid ${mode.type === 'Walk' ? 'rgba(93,217,154,0.35)' : 'rgba(123,196,255,0.35)'}`,
@@ -289,10 +309,10 @@ function Amsterdam() {
         <BobbyTips />
 
         {/* Group Polls */}
-        <div style={{ marginBottom: 36 }}>
+        <div id="polls" style={{ marginBottom: 36 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '32px 0 20px' }}>
             <div style={{ flex: 1, height: 1, background: '#E8E0D0' }} />
-            <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', color: '#999', whiteSpace: 'nowrap' }}>Group Polls</span>
+            <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', color: '#999', whiteSpace: 'nowrap' }}>Group Polls</span>
             <div style={{ flex: 1, height: 1, background: '#E8E0D0' }} />
           </div>
           {POLLS.map(poll => (
@@ -305,21 +325,26 @@ function Amsterdam() {
           ))}
         </div>
 
-        {/* Day Cards */}
-        {DAYS.map(day => (
-          <DayCard
-            key={day.id}
-            day={day}
-            votes={votes}
-            onVote={vote}
-            liveWeather={liveWeather}
-          />
+        {/* Day Cards with section dividers every 2 days */}
+        {DAYS.map((day, i) => (
+          <div key={day.id}>
+            <DayCard day={day} votes={votes} onVote={vote} liveWeather={liveWeather} />
+            {i % 2 === 1 && i < DAYS.length - 1 && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14, margin: '4px 0 20px' }}>
+                <div style={{ flex: 1, height: 1, background: '#E8E0D0' }} />
+                <span style={{ fontSize: 12, color: '#bbb', letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                  Amsterdam · Days {i} – {i + 1}
+                </span>
+                <div style={{ flex: 1, height: 1, background: '#E8E0D0' }} />
+              </div>
+            )}
+          </div>
         ))}
 
         {/* Practical tips */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '32px 0 20px' }}>
           <div style={{ flex: 1, height: 1, background: '#E8E0D0' }} />
-          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', color: '#999' }}>Practical Tips</span>
+          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', color: '#999' }}>Practical Tips</span>
           <div style={{ flex: 1, height: 1, background: '#E8E0D0' }} />
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>

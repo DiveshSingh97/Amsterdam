@@ -30,57 +30,59 @@ export default function RestaurantCard({ resto, voteData, onVote }) {
     <div style={{
       border: '1px solid #E8E0D0',
       borderRadius: 12,
-      padding: '14px 16px',
+      padding: '20px',
       background: '#fff',
       position: 'relative',
       transition: 'box-shadow 0.15s',
     }}>
       {/* Tier badge */}
       <div style={{
-        position: 'absolute', top: 14, right: 14,
-        fontSize: 10, fontWeight: 700, letterSpacing: 1,
-        textTransform: 'uppercase', padding: '3px 9px',
+        position: 'absolute', top: 16, right: 16,
+        fontSize: 12, fontWeight: 700, letterSpacing: 1,
+        textTransform: 'uppercase', padding: '4px 10px',
         borderRadius: 999, background: tier.bg, color: tier.color,
       }}>{tier.label}</div>
 
       {/* Name */}
-      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, paddingRight: 90, lineHeight: 1.2 }}>
+      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 19, fontWeight: 700, paddingRight: 100, lineHeight: 1.2 }}>
         {resto.name}
       </div>
-      <div style={{ fontSize: 13, color: '#999', marginTop: 2, marginBottom: 8 }}>{resto.type}</div>
-      <div style={{ fontSize: 14, color: '#555', lineHeight: 1.65, marginBottom: 10 }}>{resto.desc}</div>
+      <div style={{ fontSize: 14, color: '#999', marginTop: 3, marginBottom: 10 }}>{resto.type}</div>
+      <div style={{ fontSize: 15, color: '#555', lineHeight: 1.7, marginBottom: 14 }}>{resto.desc}</div>
 
       {/* Price + distance */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center', marginBottom: 10 }}>
-        <span style={{ fontSize: 14, fontWeight: 600 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center', marginBottom: 12 }}>
+        <span style={{ fontSize: 16, fontWeight: 600 }}>
           €{resto.eurMin}–{resto.eurMax} pp
-          <span style={{ fontWeight: 400, color: '#666', fontSize: 13, marginLeft: 4 }}>≈ R{zarMin}–{zarMax}</span>
+          <span style={{ fontWeight: 400, color: '#666', fontSize: 14, marginLeft: 6 }}>≈ R{zarMin}–{zarMax}</span>
         </span>
-        <span style={{ fontSize: 13, color: '#777', background: '#F2EAD8', padding: '3px 9px', borderRadius: 999 }}>
+        <span style={{ fontSize: 13, color: '#777', background: '#F2EAD8', padding: '4px 10px', borderRadius: 999 }}>
           📍 {resto.dist}
         </span>
       </div>
 
       {/* Links */}
-      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center', marginBottom: 10 }}>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', marginBottom: 12 }}>
         {resto.menuUrl && (
           <a href={resto.menuUrl} target="_blank" rel="noreferrer" style={{
-            fontSize: 11, padding: '3px 11px', borderRadius: 999,
+            fontSize: 13, padding: '8px 16px', borderRadius: 8,
             border: '1px solid #1C1C1C', color: '#fff', background: '#1C1C1C',
             textDecoration: 'none', fontFamily: "'Outfit', sans-serif",
+            minHeight: 44, display: 'inline-flex', alignItems: 'center',
           }}>📋 Menu / View</a>
         )}
         {resto.bookUrl && (
           <a href={resto.bookUrl} target="_blank" rel="noreferrer" style={{
-            fontSize: 11, padding: '3px 11px', borderRadius: 999,
+            fontSize: 13, padding: '8px 16px', borderRadius: 8,
             border: '1px solid #E8E0D0', color: '#555', background: '#F8F3EC',
             textDecoration: 'none', fontFamily: "'Outfit', sans-serif",
+            minHeight: 44, display: 'inline-flex', alignItems: 'center',
           }}>🌐 Book</a>
         )}
         {/* Booking badge */}
         <span style={{
           display: 'inline-flex', alignItems: 'center', gap: 5,
-          fontSize: 11, fontWeight: 600, padding: '3px 10px',
+          fontSize: 13, fontWeight: 600, padding: '4px 12px',
           borderRadius: 999, border: `1.5px solid ${book.border}`,
           background: book.bg, color: book.color,
         }}>
@@ -91,13 +93,13 @@ export default function RestaurantCard({ resto, voteData, onVote }) {
 
       {/* Vote buttons */}
       {onVote && (
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center', borderTop: '1px solid #F2EAD8', paddingTop: 10, marginTop: 4 }}>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center', borderTop: '1px solid #F2EAD8', paddingTop: 12, marginTop: 4 }}>
           <span style={{ fontSize: 13, color: '#aaa', marginRight: 4 }}>Group vote:</span>
           <button
             onClick={() => onVote(resto.id, 'up')}
             style={{
               display: 'flex', alignItems: 'center', gap: 5,
-              padding: '5px 12px', borderRadius: 999, cursor: 'pointer',
+              padding: '5px 14px', borderRadius: 999, cursor: 'pointer', minHeight: 44,
               border: `1.5px solid ${userVote === 'up' ? '#2E7D52' : '#E8E0D0'}`,
               background: userVote === 'up' ? '#EDF7F1' : '#fff',
               color: userVote === 'up' ? '#2E7D52' : '#555',
@@ -111,7 +113,7 @@ export default function RestaurantCard({ resto, voteData, onVote }) {
             onClick={() => onVote(resto.id, 'down')}
             style={{
               display: 'flex', alignItems: 'center', gap: 5,
-              padding: '5px 12px', borderRadius: 999, cursor: 'pointer',
+              padding: '5px 14px', borderRadius: 999, cursor: 'pointer', minHeight: 44,
               border: `1.5px solid ${userVote === 'down' ? '#C0392B' : '#E8E0D0'}`,
               background: userVote === 'down' ? '#FFF5F5' : '#fff',
               color: userVote === 'down' ? '#C0392B' : '#555',
