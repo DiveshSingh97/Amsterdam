@@ -1,139 +1,79 @@
-import { useEffect, useRef } from 'react'
+import { useMemo } from 'react'
+
+const SHADES = [
+  '#FFB7C5',
+  '#FF99B4',
+  '#F5A0BA',
+  '#FFD2DC',
+  '#FFAAC0',
+  '#F07898',
+  '#FFC8D5',
+]
+
+function rand(min, max) {
+  return min + Math.random() * (max - min)
+}
 
 export default function FallingPetals() {
-  const canvasRef = useRef(null)
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640
+  const count = isMobile ? 0 : typeof window !== 'undefined' && window.innerWidth < 1024 ? 14 : 28
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    let animationId
-    let petals = []
+  const petals = useMemo(() =>
+    Array.from({ length: count }, (_, i) => ({
+      id: i,
+      left:     rand(0, 100),
+      duration: rand(9, 18),
+      delay:    rand(0, 16),
+      width:    rand(9, 16),
+      height:   rand(15, 26),
+      color:    SHADES[Math.floor(Math.random() * SHADES.length)],
+      initRot:  rand(0, 360),
+      drift:    rand(-60, 60),
+    })),
+  [count])
 
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    resize()
-    window.addEventListener('resize', resize)
-
-    // Petal colours — pink sakura tones
-    const colors = [
-      'rgba(255, 183, 197, 0.75)',
-      'rgba(255, 153, 180, 0.70)',
-      'rgba(240, 120, 155, 0.65)',
-      'rgba(255, 210, 220, 0.80)',
-      'rgba(250, 170, 190, 0.70)',
-      'rgba(235, 130, 165, 0.68)',
-    ]
-
-    // How many petals — fewer on mobile
-    const petalCount = window.innerWidth < 640 ? 0 : window.innerWidth < 1024 ? 12 : 28
-
-    // Petal class
-    class Petal {
-      constructor() {
-        this.reset(true)
-      }
-
-      reset(initial = false) {
-        this.x = Math.random() * canvas.width
-        this.y = initial ? Math.random() * canvas.height : -20
-        this.size = Math.random() * 10 + 7        // 7–17px
-        this.speedY = Math.random() * 0.6 + 0.3   // very slow fall
-        this.speedX = Math.random() * 0.4 - 0.2   // gentle sideways drift
-        this.rotation = Math.random() * Math.PI * 2
-        this.rotationSpeed = (Math.random() - 0.5) * 0.012
-        this.opacity = Math.random() * 0.4 + 0.4   // 40–80% opacity — clearly visible
-        this.wobble = Math.random() * Math.PI * 2
-        this.wobbleSpeed = Math.random() * 0.018 + 0.008
-        this.color = colors[Math.floor(Math.random() * colors.length)]
-        this.scaleX = 1
-        this.scaleXDir = (Math.random() - 0.5) * 0.008
-      }
-
-      update() {
-        this.y += this.speedY
-        this.wobble += this.wobbleSpeed
-        this.x += this.speedX + Math.sin(this.wobble) * 0.5
-        this.rotation += this.rotationSpeed
-        this.scaleX += this.scaleXDir
-        if (this.scaleX > 1 || this.scaleX < 0.3) this.scaleXDir *= -1
-
-        if (this.y > canvas.height + 30) this.reset()
-        if (this.x < -30) this.x = canvas.width + 20
-        if (this.x > canvas.width + 30) this.x = -20
-      }
-
-      draw() {
-        ctx.save()
-        ctx.translate(this.x, this.y)
-        ctx.rotate(this.rotation)
-        ctx.scale(this.scaleX, 1)
-        ctx.globalAlpha = this.opacity
-
-        // Draw a petal shape — oval with pointed ends
-        ctx.beginPath()
-        ctx.fillStyle = this.color
-
-        // Simple petal: ellipse with slight point
-        const w = this.size * 0.5
-        const h = this.size
-        ctx.beginPath()
-        ctx.moveTo(0, -h)
-        ctx.bezierCurveTo(w, -h * 0.5, w, h * 0.5, 0, h)
-        ctx.bezierCurveTo(-w, h * 0.5, -w, -h * 0.5, 0, -h)
-        ctx.closePath()
-        ctx.fill()
-
-        // Subtle centre vein line
-        ctx.beginPath()
-        ctx.strokeStyle = 'rgba(200, 80, 110, 0.3)'
-        ctx.lineWidth = 0.5
-        ctx.moveTo(0, -h * 0.8)
-        ctx.lineTo(0, h * 0.8)
-        ctx.stroke()
-
-        ctx.restore()
-      }
-    }
-
-    // Initialise petals
-    for (let i = 0; i < petalCount; i++) {
-      petals.push(new Petal())
-    }
-
-    // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      petals.forEach(p => {
-        p.update()
-        p.draw()
-      })
-      animationId = requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    return () => {
-      cancelAnimationFrame(animationId)
-      window.removeEventListener('resize', resize)
-    }
-  }, [])
+  if (count === 0) return null
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',   // never blocks clicks or scrolling
-        zIndex: 9999,            // floats above all content
-        opacity: 1,
-      }}
-    />
+    <div style={{
+      position: 'fixed', inset: 0,
+      overflow: 'hidden',
+      pointerEvents: 'none',
+      zIndex: 9999,
+    }}>
+      <style>{`
+        @keyframes sakuraFall {
+          0%   { transform: translateY(-40px) translateX(0px)      rotate(0deg)   scaleX(1.0); opacity: 0;   }
+          6%   {                                                                                opacity: 0.9; }
+          28%  { transform: translateY(28vh)  translateX(var(--d1)) rotate(110deg) scaleX(0.5); }
+          55%  { transform: translateY(58vh)  translateX(var(--d2)) rotate(240deg) scaleX(0.9); }
+          82%  {                                                                                opacity: 0.8; }
+          100% { transform: translateY(112vh) translateX(var(--d3)) rotate(390deg) scaleX(0.6); opacity: 0;  }
+        }
+      `}</style>
+
+      {petals.map(p => (
+        <div
+          key={p.id}
+          style={{
+            position: 'absolute',
+            left: `${p.left}%`,
+            top: 0,
+            width:  p.width,
+            height: p.height,
+            borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+            background: p.color,
+            boxShadow: `inset 0 -2px 4px rgba(200,70,110,0.15)`,
+            transform: `rotate(${p.initRot}deg)`,
+            animation: `sakuraFall ${p.duration}s ${p.delay}s infinite ease-in`,
+            willChange: 'transform, opacity',
+            opacity: 0,
+            '--d1': `${p.drift}px`,
+            '--d2': `${-p.drift * 0.6}px`,
+            '--d3': `${p.drift * 0.3}px`,
+          }}
+        />
+      ))}
+    </div>
   )
 }
