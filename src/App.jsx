@@ -6,6 +6,7 @@ import Poll from './components/Poll'
 import BobbyTips from './components/BobbyTips'
 import Brussels from './Brussels'
 import Calendar from './Calendar'
+import FallingPetals from './components/FallingPetals'
 
 const ROUTES = [
   {
@@ -90,7 +91,8 @@ function Amsterdam() {
   const liveWeather = useWeather()
 
   return (
-    <div style={{ background: '#F8F3EC', minHeight: '100vh', fontFamily: "'Outfit', sans-serif" }}>
+    <div style={{ background: '#F8F3EC', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", position: 'relative' }}>
+      <FallingPetals />
 
       {/* HERO */}
       <div style={{

@@ -2,13 +2,15 @@ import { useState } from 'react'
 import { useVotes } from './hooks/useTrip'
 import { BRUSSELS_DAYS, BRUSSELS_TIPS } from './data/brusselsData'
 import DayCard from './components/DayCard'
+import FallingPetals from './components/FallingPetals'
 
 export default function Brussels() {
   const { votes, vote } = useVotes()
   const [tipsOpen, setTipsOpen] = useState(true)
 
   return (
-    <div style={{ background: '#F5F0E0', minHeight: '100vh', fontFamily: "'Outfit', sans-serif" }}>
+    <div style={{ background: '#F5F0E0', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", position: 'relative' }}>
+      <FallingPetals />
 
       {/* HERO */}
       <div style={{
