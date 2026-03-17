@@ -1,10 +1,12 @@
+import { Routes, Route } from 'react-router-dom'
 import { DAYS, POLLS } from './data/tripData'
 import { useVotes, usePolls, useWeather } from './hooks/useTrip'
 import DayCard from './components/DayCard'
 import Poll from './components/Poll'
 import BobbyTips from './components/BobbyTips'
+import Brussels from './Brussels'
 
-export default function App() {
+function Amsterdam() {
   const { votes, vote } = useVotes()
   const { pollVotes, votePoll } = usePolls()
   const liveWeather = useWeather()
@@ -211,6 +213,22 @@ export default function App() {
         </div>
       </div>
 
+      {/* Brussels callout */}
+      <div style={{ textAlign: 'center', padding: '56px 24px', background: '#0D2B1A', borderTop: '1px solid #1B4332' }}>
+        <p style={{ color: 'rgba(248,243,236,0.4)', fontSize: 13, marginBottom: 8, letterSpacing: 2, textTransform: 'uppercase' }}>
+          Divesh & Mom · April 10–14
+        </p>
+        <p style={{ color: 'rgba(248,243,236,0.5)', fontSize: 14, marginBottom: 24 }}>
+          Everyone else flies home — the adventure continues 🇧🇪
+        </p>
+        <a href="/brussels" style={{ display: 'inline-block', background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)', color: '#F8F3EC', fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, fontStyle: 'italic', padding: '24px 64px', borderRadius: 18, textDecoration: 'none', letterSpacing: 1, border: '2px solid rgba(201,168,76,0.4)', boxShadow: '0 8px 40px rgba(0,0,0,0.5)', transition: 'transform 0.2s' }}>
+          🇧🇪 Brussels
+        </a>
+        <p style={{ color: 'rgba(248,243,236,0.25)', fontSize: 12, marginTop: 16 }}>
+          Brussels · Bruges · 4 more days →
+        </p>
+      </div>
+
       {/* Footer */}
       <footer style={{ textAlign: 'center', padding: '32px 24px 40px', fontSize: 12, color: '#999', borderTop: '1px solid #E8E0D0' }}>
         <div style={{ color: '#D94F3D', fontSize: 22, marginBottom: 8 }}>🌷</div>
@@ -218,5 +236,14 @@ export default function App() {
         <div style={{ marginTop: 6, fontSize: 11, color: '#bbb' }}>Last updated: March 2026 · Built for the group 🌷</div>
       </footer>
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Amsterdam />} />
+      <Route path="/brussels" element={<Brussels />} />
+    </Routes>
   )
 }
