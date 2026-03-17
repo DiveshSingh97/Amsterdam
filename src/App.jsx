@@ -16,7 +16,7 @@ function Amsterdam() {
 
       {/* HERO */}
       <div style={{
-        background: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat",
+        background: "url('https://c4.wallpaperflare.com/wallpaper/444/189/182/tulips-field-windmill-flowers-wallpaper-preview.jpg') center/cover no-repeat",
         color: '#F8F3EC', padding: '80px 24px 60px', textAlign: 'center',
         position: 'relative', overflow: 'hidden',
       }}>
