@@ -6,11 +6,12 @@ export const DAYS = [
     dow: 'Thursday · Day 1',
     title: 'Arrival & First Canal Walk',
     tags: ['Arrival', 'Dutch Food'],
-    weather: { icon: '🌤️', high: 11, low: 4, desc: 'Partly cloudy, light easterly wind. Dry but cool.', badge: 'fine', wear: '👕 + light jacket + scarf' },
+    weather: { icon: '🌤️', high: 11, low: 4, desc: 'For Durban people this will feel properly cold from the moment you step outside. Light jacket alone won\'t cut it — you need a mid-layer underneath. Dry though, which helps.', badge: 'fine', wear: '🥶 Mid-layer + jacket + scarf. Durban people: do not underestimate this.' },
     activities: [
       { icon: '🏨', time: 'Arrival', title: 'Check in — Ruby Emma Hotel', detail: 'Central location, walking distance to canals.', booking: 'easy', bookingText: 'Already booked' },
       { icon: '🚶', time: 'Afternoon', title: 'First stroll — Dam Square → Jordaan', detail: "Get your bearings, grab a coffee, wander the canals. Don't overdo it on arrival day.", booking: 'easy', bookingText: 'No booking — just walk' },
-      { icon: '🚢', time: 'Evening opt.', title: 'Optional: Evening Canal Cruise (~€18–25 pp / ≈R342–475)', detail: 'Great city intro. Departs from Central Station or Rembrandtplein.', booking: 'soon', bookingText: 'Book online same day' },
+      { icon: '🚢', time: 'Evening opt.', title: 'Optional: Evening Canal Cruise (~€18–25 pp / ≈R342–475)', detail: 'Great city intro. Departs from Central Station or Rembrandtplein.', booking: 'soon', bookingText: 'Book online same day', bookingUrl: 'https://www.stromma.com/en-nl/amsterdam/sightseeing/sightseeing-by-boat/', bookingNote: 'Book online — evening slots fill up in April.' },
+      { icon: '🃏', time: 'Pro tip', title: 'Amsterdam City Card — worth it?', detail: 'Covers Rijksmuseum + Van Gogh + unlimited GVB trams/metro/buses. 3-day card from €85 (≈R1,615). If you\'re doing both museums + multiple tram days, it pays for itself.', booking: 'soon', bookingText: 'Buy online before you arrive', bookingUrl: 'https://www.iamsterdam.com/en/i-am/iamsterdam-city-card', bookingNote: 'Covers Rijksmuseum + Van Gogh + unlimited GVB transport. 3-day card from €85 (≈R1,615).' },
     ],
     extras: [
       { icon: '🆓', title: "Sandeman's Free Walking Tour", detail: 'Tip-based, departs Dam Square 10:00 & 14:00. Perfect Day 1 orientation. Book at neweuropetours.eu' },
@@ -33,9 +34,9 @@ export const DAYS = [
     dow: 'Friday · Day 2',
     title: 'Rijksmuseum & Vondelpark',
     tags: ['Art & Culture', 'Park'],
-    weather: { icon: '🌥️', high: 11, low: 4, desc: 'Overcast with sunny breaks. Higher humidity, possible light rain afternoon.', badge: 'mixed', wear: '☔ Bring rain jacket' },
+    weather: { icon: '🌥️', high: 11, low: 4, desc: 'Same cold as Day 1 but with higher humidity and possible afternoon drizzle. The damp makes it feel colder than the number suggests — Durban people will really feel this.', badge: 'mixed', wear: '☔ Mid-layer + rain jacket + scarf. Bring the jacket, use it.' },
     activities: [
-      { icon: '🎨', time: '9:00', title: 'Rijksmuseum — book 9:00 timed entry', detail: "Night Watch, Dutch Golden Age galleries — allow 2.5–3 hrs. Entry ~€22.50 pp (≈R427). April sells out weeks ahead.", booking: 'now', bookingText: 'Book TODAY — rijksmuseum.nl' },
+      { icon: '🎨', time: '9:00', title: 'Rijksmuseum — book 9:00 timed entry', detail: "Night Watch, Dutch Golden Age galleries — allow 2.5–3 hrs. Entry ~€22.50 pp (≈R427). April sells out weeks ahead.", booking: 'now', bookingText: 'Book TODAY — rijksmuseum.nl', bookingUrl: 'https://www.rijksmuseum.nl/en/tickets', bookingNote: 'Online only — no door sales. Book by date + time. April slots sell out 2–3 weeks ahead.' },
       { icon: '🌳', time: 'Afternoon', title: 'Vondelpark', detail: "Amsterdam's main park — post-museum decompress. Free, no booking needed.", booking: 'easy', bookingText: 'Just show up' },
     ],
     extras: [
@@ -64,9 +65,9 @@ export const DAYS = [
     dow: 'Saturday · Day 3',
     title: 'Van Gogh Museum & Canal District',
     tags: ['Art', 'Shopping'],
-    weather: { icon: '🌦️', high: 11, low: 4, desc: 'Chance of showers mid-morning. Clears up in the afternoon. Saturday crowds peak today.', badge: 'mixed', wear: '☔ Rain jacket essential' },
+    weather: { icon: '🌦️', high: 11, low: 4, desc: 'Showers possible mid-morning — plan the Van Gogh Museum early so you\'re indoors if it rains. Afternoons can clear up. Still very cold by SA standards.', badge: 'mixed', wear: '☔ Rain jacket essential. Mid-layer underneath. Scarf.' },
     activities: [
-      { icon: '🌻', time: '9:00–9:30', title: 'Van Gogh Museum', detail: '200 paintings, 500 drawings. Entry ~€22 pp (≈R418). Saturday in April = busiest day.', booking: 'now', bookingText: 'Book TODAY — vangoghmuseum.nl' },
+      { icon: '🌻', time: '9:00–9:30', title: 'Van Gogh Museum', detail: '200 paintings, 500 drawings. Entry ~€22 pp (≈R418). Saturday in April = busiest day.', booking: 'now', bookingText: 'Book TODAY — vangoghmuseum.nl', bookingUrl: 'https://www.vangoghmuseum.nl/en/visit/tickets', bookingNote: 'Timed entry required. Saturday in April is the busiest day — book the earliest slot available.' },
       { icon: '🛍️', time: 'Afternoon', title: 'De 9 Straatjes + Bloemenmarkt', detail: 'Nine boutique streets + the famous floating flower market on the Singel canal.', booking: 'easy', bookingText: 'No booking — just explore' },
     ],
     extras: [
@@ -95,9 +96,9 @@ export const DAYS = [
     dow: 'Sunday · Day 4',
     title: 'Keukenhof Tulip Gardens 🌷',
     tags: ['Nature', 'Day Trip'],
-    weather: { icon: '🌬️', high: 11, low: 4, desc: 'SW wind, generally dry but breezy. Noticeable in open tulip fields.', badge: 'mixed', wear: '🧣 Scarf + mid-layer essential' },
+    weather: { icon: '🌬️', high: 11, low: 4, desc: 'Cold and windy at Keukenhof — the tulip fields are completely open with no shelter. SW wind will go right through you. This is the day Durban people suffer most outdoors.', badge: 'mixed', wear: '🌬️ Windproof jacket + mid-layer + scarf + gloves if you have them. Not optional.' },
     activities: [
-      { icon: '🌷', time: '8:00–13:00', title: 'Keukenhof Gardens — leave Amsterdam by 7:30', detail: '7 million flowers in peak bloom, windmill viewpoint, indoor pavilions, bike rental (~€12). Entry ~€22 pp (≈R418). NO door sales.', booking: 'now', bookingText: 'Buy tickets NOW — keukenhof.nl' },
+      { icon: '🌷', time: '8:00–13:00', title: 'Keukenhof Gardens — leave Amsterdam by 7:30', detail: '7 million flowers in peak bloom, windmill viewpoint, indoor pavilions, bike rental (~€12). Entry ~€22 pp (≈R418). NO door sales.', booking: 'now', bookingText: 'Buy tickets NOW — keukenhof.nl', bookingUrl: 'https://keukenhof.nl/en/tickets/', bookingNote: 'No door sales whatsoever — online only. Buy before you leave SA. Sells out on peak weekends.' },
     ],
     extras: [
       { icon: '🆓', title: 'Surrounding tulip fields', detail: 'Cycling through Lisse and Hillegom is free. Rent bikes at entrance (~€12/day).' },
@@ -125,7 +126,7 @@ export const DAYS = [
     dow: 'Monday · Day 5',
     title: 'Haarlem Day Trip (or Free Day)',
     tags: ['Day Trip', 'Optional'],
-    weather: { icon: '🌥️', high: 11, low: 5, desc: 'Overcast, NW wind. Cool and possible light drizzle. Easy to bail on Haarlem if weather turns bad.', badge: 'mixed', wear: '☔ Light rain jacket' },
+    weather: { icon: '🌥️', high: 11, low: 5, desc: 'Overcast and cool. If doing Haarlem, it\'s a short trip so easy to manage. If staying in Amsterdam, a good day to be flexible and duck inside if it gets uncomfortable.', badge: 'mixed', wear: '🧥 Mid-layer + jacket. Scarf as always.' },
     activities: [
       { icon: '🚆', time: 'Morning', title: 'Train to Haarlem — 20 min, ~€5 each way', detail: 'Grote Markt (medieval square), St. Bavo\'s Church (Handel and Mozart both played the organ), De Adriaan Windmill.', booking: 'easy', bookingText: 'Hop on the train' },
     ],
@@ -155,10 +156,10 @@ export const DAYS = [
     dow: 'Tuesday · Day 6',
     title: 'Utrecht + Red Light District Evening',
     tags: ['Day Trip', 'Night Tour'],
-    weather: { icon: '🌦️', high: 11, low: 4, desc: 'Most humid day of the trip. Expect overcast and likely drizzle. Evening is better.', badge: 'wet', wear: '☔ Full rain jacket + waterproof shoes' },
+    weather: { icon: '🌦️', high: 11, low: 4, desc: 'Historically the most humid day of the trip. Likely drizzle most of the day. For Durban people this is the hardest weather day — wet AND cold. The good news: the evening Red Light District walk is after dark when it\'s drier.', badge: 'wet', wear: '☔ Full rain jacket + mid-layer + waterproof shoes if you have them. Coldest feeling day.' },
     activities: [
-      { icon: '🚆', time: 'Morning', title: 'Train to Utrecht — 30 min, ~€8 each way', detail: "Dom Tower (tallest church tower in Netherlands, guided climb ~€15 pp), Oudegracht Canal (unique wharf-level cafés).", booking: 'soon', bookingText: 'Book Dom Tower at domtoren.nl' },
-      { icon: '🌙', time: '20:30–22:00', title: 'De Wallen — Guided Red Light District Tour', detail: 'Historical context — Oude Kerk, canal alleys, Dutch law on sex work. No photos of windows.', booking: 'soon', bookingText: 'Book at amsterdamredlighttours.com' },
+      { icon: '🚆', time: 'Morning', title: 'Train to Utrecht — 30 min, ~€8 each way', detail: "Dom Tower (tallest church tower in Netherlands, guided climb ~€15 pp), Oudegracht Canal (unique wharf-level cafés).", booking: 'soon', bookingText: 'Book Dom Tower at domtoren.nl', bookingUrl: 'https://domtoren.nl/en/tickets', bookingNote: 'Guided climb only ~€15 pp. Tours fill up — book a slot before you arrive in Utrecht.' },
+      { icon: '🌙', time: '20:30–22:00', title: 'De Wallen — Guided Red Light District Tour', detail: 'Historical context — Oude Kerk, canal alleys, Dutch law on sex work. No photos of windows.', booking: 'soon', bookingText: 'Book at amsterdamredlighttours.com', bookingUrl: 'https://www.getyourguide.com/amsterdam-l36/amsterdam-red-light-district-guided-walking-tour-t66461/', bookingNote: 'Use GetYourGuide for vetted operators with free cancellation.' },
     ],
     extras: [
       { icon: '🆓', title: 'Utrecht Oudegracht wharf walk', detail: 'Completely free. Walk the lower canal level. Stunning in the rain — reflections are incredible.' },
@@ -186,7 +187,7 @@ export const DAYS = [
     dow: 'Wednesday · Day 7',
     title: 'Markets & Creative Amsterdam',
     tags: ['Markets', 'Farewell 🥂'],
-    weather: { icon: '🌤️', high: 11, low: 5, desc: 'Better than Day 6 — partly cloudy with sun breaks. Wind calming down.', badge: 'fine', wear: '👕 + light jacket' },
+    weather: { icon: '🌤️', high: 11, low: 5, desc: 'Better than Day 6 — some sun breaks expected. Still cold by SA standards but the best weather day of the second half. Good day for the outdoor market.', badge: 'fine', wear: '🌤️ Jacket + light mid-layer. Might actually feel okay by now — you\'ll have acclimatised.' },
     activities: [
       { icon: '🛒', time: 'Morning', title: 'Albert Cuyp Market', detail: "Amsterdam's biggest outdoor market. Eat as you walk: stroopwafels, poffertjes, kibbeling, raw herring.", booking: 'easy', bookingText: 'Open all day — just show up' },
       { icon: '🎨', time: 'Afternoon', title: 'Free Ferry → NDSM Wharf', detail: 'Post-industrial creative district. Huge street art, independent cafés, waterfront views. Free ferry from Central Station every 15 min.', booking: 'easy', bookingText: 'Ferry is free — just go' },
@@ -217,7 +218,7 @@ export const DAYS = [
     dow: 'Thursday · Day 8',
     title: 'Departure Morning',
     tags: ['Slow start'],
-    weather: { icon: '🌤️', high: 12, low: 6, desc: 'Marginally warmer. Partly cloudy, NE wind, generally dry. A decent send-off day.', badge: 'fine', wear: '👕 + light jacket' },
+    weather: { icon: '🌤️', high: 12, low: 6, desc: 'Marginally warmer — the warmest morning of the trip at 12°C. Still jacket weather for Durban people but a decent send-off day.', badge: 'fine', wear: '👕 Jacket still needed but you can probably skip the heavy mid-layer.' },
     activities: [
       { icon: '☕', time: 'Morning', title: 'Coffee by the canals + Oosterpark walk', detail: "Ruby Emma is close to Oosterpark. Allow 50–60 min to Schiphol by train — don't cut it close.", booking: 'easy', bookingText: 'No booking needed' },
     ],

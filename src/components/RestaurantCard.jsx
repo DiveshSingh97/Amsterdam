@@ -44,19 +44,19 @@ export default function RestaurantCard({ resto, voteData, onVote }) {
       }}>{tier.label}</div>
 
       {/* Name */}
-      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 700, paddingRight: 90, lineHeight: 1.2 }}>
+      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 700, paddingRight: 90, lineHeight: 1.2 }}>
         {resto.name}
       </div>
-      <div style={{ fontSize: 12, color: '#999', marginTop: 2, marginBottom: 8 }}>{resto.type}</div>
-      <div style={{ fontSize: 13, color: '#555', lineHeight: 1.5, marginBottom: 10 }}>{resto.desc}</div>
+      <div style={{ fontSize: 13, color: '#999', marginTop: 2, marginBottom: 8 }}>{resto.type}</div>
+      <div style={{ fontSize: 14, color: '#555', lineHeight: 1.65, marginBottom: 10 }}>{resto.desc}</div>
 
       {/* Price + distance */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center', marginBottom: 10 }}>
-        <span style={{ fontSize: 13, fontWeight: 600 }}>
+        <span style={{ fontSize: 14, fontWeight: 600 }}>
           €{resto.eurMin}–{resto.eurMax} pp
-          <span style={{ fontWeight: 400, color: '#666', fontSize: 12, marginLeft: 4 }}>≈ R{zarMin}–{zarMax}</span>
+          <span style={{ fontWeight: 400, color: '#666', fontSize: 13, marginLeft: 4 }}>≈ R{zarMin}–{zarMax}</span>
         </span>
-        <span style={{ fontSize: 12, color: '#777', background: '#F2EAD8', padding: '3px 9px', borderRadius: 999 }}>
+        <span style={{ fontSize: 13, color: '#777', background: '#F2EAD8', padding: '3px 9px', borderRadius: 999 }}>
           📍 {resto.dist}
         </span>
       </div>
@@ -92,7 +92,7 @@ export default function RestaurantCard({ resto, voteData, onVote }) {
       {/* Vote buttons */}
       {onVote && (
         <div style={{ display: 'flex', gap: 8, alignItems: 'center', borderTop: '1px solid #F2EAD8', paddingTop: 10, marginTop: 4 }}>
-          <span style={{ fontSize: 11, color: '#aaa', marginRight: 4 }}>Group vote:</span>
+          <span style={{ fontSize: 13, color: '#aaa', marginRight: 4 }}>Group vote:</span>
           <button
             onClick={() => onVote(resto.id, 'up')}
             style={{

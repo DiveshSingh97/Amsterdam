@@ -6,7 +6,7 @@ export default function Poll({ poll, pollData, onVote }) {
     <div style={{
       background: '#1C1C1C', borderRadius: 14, padding: '18px 20px', marginBottom: 16,
     }}>
-      <div style={{ fontSize: 13, fontWeight: 600, color: '#F8F3EC', marginBottom: 12, lineHeight: 1.4 }}>
+      <div style={{ fontSize: 14, fontWeight: 600, color: '#F8F3EC', marginBottom: 12, lineHeight: 1.65 }}>
         🗳️ {poll.question}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -39,7 +39,7 @@ export default function Poll({ poll, pollData, onVote }) {
               )}
               <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <div style={{ fontSize: 13, fontWeight: isVoted ? 600 : 400, color: isVoted ? '#e6c060' : '#F8F3EC' }}>
+                  <div style={{ fontSize: 14, fontWeight: isVoted ? 600 : 400, color: isVoted ? '#e6c060' : '#F8F3EC' }}>
                     {isVoted && '✓ '}{opt.label}
                   </div>
                   {opt.desc && <div style={{ fontSize: 11, color: 'rgba(248,243,236,0.45)', marginTop: 2 }}>{opt.desc}</div>}

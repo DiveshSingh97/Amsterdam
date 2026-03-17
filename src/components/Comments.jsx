@@ -27,12 +27,12 @@ export default function Comments({ dayId, comments, onAdd }) {
               borderLeft: '3px solid #E8E0D0',
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-                <span style={{ fontSize: 12, fontWeight: 600, color: '#1C1C1C' }}>{c.name}</span>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#1C1C1C' }}>{c.name}</span>
                 <span style={{ fontSize: 11, color: '#aaa' }}>
                   {new Date(c.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}
                 </span>
               </div>
-              <div style={{ fontSize: 13, color: '#555', lineHeight: 1.5 }}>{c.message}</div>
+              <div style={{ fontSize: 14, color: '#555', lineHeight: 1.65 }}>{c.message}</div>
             </div>
           ))}
         </div>
@@ -60,7 +60,7 @@ export default function Comments({ dayId, comments, onAdd }) {
             onChange={e => setName(e.target.value)}
             style={{
               padding: '8px 12px', borderRadius: 8, border: '1px solid #E8E0D0',
-              fontSize: 13, fontFamily: "'Outfit', sans-serif", outline: 'none',
+              fontSize: 14, fontFamily: "'Outfit', sans-serif", outline: 'none',
               background: '#FAFAF8',
             }}
           />
@@ -71,7 +71,7 @@ export default function Comments({ dayId, comments, onAdd }) {
             rows={3}
             style={{
               padding: '8px 12px', borderRadius: 8, border: '1px solid #E8E0D0',
-              fontSize: 13, fontFamily: "'Outfit', sans-serif", outline: 'none',
+              fontSize: 14, fontFamily: "'Outfit', sans-serif", outline: 'none',
               background: '#FAFAF8', resize: 'vertical',
             }}
           />

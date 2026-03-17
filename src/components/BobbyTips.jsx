@@ -123,18 +123,18 @@ const TIPS = [
 ]
 
 export default function BobbyTips() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   return (
     <div id="bobby" style={{ background: '#1C1C1C', borderRadius: 20, overflow: 'hidden', marginBottom: 36, scrollMarginTop: 70 }}>
 
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'stretch', cursor: 'pointer' }} onClick={() => setOpen(o => !o)}>
-        <div style={{ width: 140, flexShrink: 0 }}>
-          <img src="/bobby.png" alt="Bobby — Official Trip Advisor" style={{ width: 140, height: 140, objectFit: 'cover', display: 'block', filter: 'brightness(0.9)' }} />
+        <div style={{ width: 140, flexShrink: 0, background: '#3d2b1f' }}>
+          <img src="/bobby.png" alt="Bobby — Official Trip Advisor" style={{ width: 140, height: 140, objectFit: 'cover', display: 'block' }} />
         </div>
         <div style={{ flex: 1, padding: '20px 24px', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
-          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 700, color: '#F8F3EC', lineHeight: 1.1 }}>
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 30, fontWeight: 700, color: '#F8F3EC', lineHeight: 1.1 }}>
             Bobby's Tips
             <span style={{ fontStyle: 'italic', color: '#D94F3D' }}> — Official Trip Advisor</span>
           </div>
@@ -155,10 +155,10 @@ export default function BobbyTips() {
           }}>
             <span style={{ fontSize: 22, flexShrink: 0 }}>📱</span>
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: '#e6c060', marginBottom: 3 }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: '#e6c060', marginBottom: 3 }}>
                 Buy your eSIM before you fly — don't roam
               </div>
-              <div style={{ fontSize: 12, color: 'rgba(248,243,236,0.6)', lineHeight: 1.5 }}>
+              <div style={{ fontSize: 13, color: 'rgba(248,243,236,0.6)', lineHeight: 1.65 }}>
                 If your phone supports eSIM, buy a European data plan through{' '}
                 <a href="https://www.airalo.com" target="_blank" rel="noreferrer"
                   style={{ color: '#e6c060', fontWeight: 600, borderBottom: '1px solid rgba(230,192,96,0.4)', textDecoration: 'none' }}>
@@ -177,9 +177,9 @@ export default function BobbyTips() {
                 borderRadius: 12, padding: '14px 16px',
               }}>
                 <div style={{ fontSize: 20, marginBottom: 6 }}>{tip.icon}</div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#F8F3EC', marginBottom: 4 }}>{tip.title}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#F8F3EC', marginBottom: 4 }}>{tip.title}</div>
                 <div style={{
-                  fontSize: 12, color: 'rgba(248,243,236,0.6)', lineHeight: 1.55,
+                  fontSize: 13, color: 'rgba(248,243,236,0.6)', lineHeight: 1.65,
                   listStyleType: 'none',
                 }}>
                   <style>{`
