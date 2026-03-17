@@ -6,6 +6,83 @@ import Poll from './components/Poll'
 import BobbyTips from './components/BobbyTips'
 import Brussels from './Brussels'
 
+const ROUTES = [
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Amsterdam Centraal Station',
+    modes: [
+      { type: 'Walk', time: '18 min', detail: 'Along Sarphatistraat → Prins Hendrikkade', cost: 'Free', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Amsterdam+Centraal&travelmode=walking' },
+      { type: 'Tram', time: '8 min', detail: 'Tram 14 from Ruyschstraat → Centraal Station', cost: '€2.40 (≈R46)', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Amsterdam+Centraal&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Rijksmuseum',
+    modes: [
+      { type: 'Walk', time: '22 min', detail: 'Through Oosterpark → Sarphatipark → Museum Quarter', cost: 'Free', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Rijksmuseum+Amsterdam&travelmode=walking' },
+      { type: 'Tram', time: '10 min', detail: 'Tram 14 → Dam Square, then Tram 2/12 to Museumplein', cost: '€2.40 (≈R46)', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Rijksmuseum+Amsterdam&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Van Gogh Museum',
+    modes: [
+      { type: 'Walk', time: '25 min', detail: 'Through De Pijp and Vondelpark edge to Museumplein', cost: 'Free', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Van+Gogh+Museum+Amsterdam&travelmode=walking' },
+      { type: 'Tram', time: '12 min', detail: 'Tram 14 toward Centraal, change to Tram 2/12 at Leidseplein', cost: '€2.40 (≈R46)', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Van+Gogh+Museum+Amsterdam&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Keukenhof (via Centraal)',
+    modes: [
+      { type: 'Train+Bus', time: '~55 min total', detail: 'Tram to Centraal (8min) → Train to Schiphol (17min) → Bus 858 to Keukenhof (30min)', cost: '~€18 pp (≈R342) or included in Combi Ticket', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Keukenhof+Lisse&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Haarlem',
+    modes: [
+      { type: 'Train', time: '~35 min total', detail: 'Tram to Centraal (8min) → Direct train to Haarlem (20min). Trains every 15 min.', cost: '~€5 pp each way (≈R95)', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Haarlem+Station&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Utrecht',
+    modes: [
+      { type: 'Train', time: '~45 min total', detail: 'Tram to Centraal (8min) → Direct train to Utrecht Centraal (30min). Trains every 30 min.', cost: '~€9 pp each way (≈R171)', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Utrecht+Centraal+Station&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'De Wallen (Red Light District)',
+    modes: [
+      { type: 'Walk', time: '25 min', detail: 'Along Kloveniersburgwal toward Oudezijds Voorburgwal', cost: 'Free', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=De+Wallen+Amsterdam&travelmode=walking' },
+      { type: 'Tram', time: '10 min', detail: 'Tram 14 to Waterlooplein, then short walk north', cost: '€2.40 (≈R46)', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Oudezijds+Voorburgwal+Amsterdam&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Albert Cuyp Market',
+    modes: [
+      { type: 'Walk', time: '12 min', detail: 'Straight down Sarphatipark — hotel is very close to De Pijp', cost: 'Free', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Albert+Cuypmarkt+Amsterdam&travelmode=walking' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'NDSM Wharf (free ferry)',
+    modes: [
+      { type: 'Tram + Ferry', time: '~25 min total', detail: 'Tram 14 to Centraal (8min) → Free ferry from Centraal Noord pier (15min). Runs every 15 min.', cost: 'Free ferry — tram €2.40 (≈R46)', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=NDSM+Wharf+Amsterdam&travelmode=transit' },
+    ]
+  },
+  {
+    from: 'Ruby Emma Hotel',
+    to: 'Schiphol Airport (departure)',
+    modes: [
+      { type: 'Train', time: '~35 min total', detail: 'Tram 14 to Centraal (8min) → Direct Sprinter train to Schiphol (17min). Runs every 10 min.', cost: '€5.40 pp (≈R103) — buy at Centraal', mapsUrl: 'https://maps.google.com/?saddr=Sarphatistraat+104+Amsterdam&daddr=Amsterdam+Airport+Schiphol&travelmode=transit' },
+    ]
+  },
+]
+
 function Amsterdam() {
   const { votes, vote } = useVotes()
   const { pollVotes, votePoll } = usePolls()
@@ -86,6 +163,58 @@ function Amsterdam() {
               {b.label}
             </div>
           ))}
+        </div>
+
+        {/* Getting Around */}
+        <div style={{ background: '#1C1C1C', color: '#F8F3EC', borderRadius: 16, padding: 26, marginBottom: 30 }}>
+          <div style={{ display: 'flex', gap: 14, marginBottom: 16 }}>
+            <span style={{ fontSize: 28, flexShrink: 0 }}>🚇</span>
+            <div>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 700, marginBottom: 4 }}>Getting Around</h3>
+              <p style={{ fontSize: 13, color: 'rgba(248,243,236,0.5)', lineHeight: 1.65, margin: 0 }}>
+                From Ruby Emma Hotel — every route you'll need, with Google Maps links.
+              </p>
+            </div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: 12 }}>
+            {ROUTES.map((route, ri) => (
+              <div key={ri} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 12, padding: '14px 16px' }}>
+                <div style={{ fontWeight: 600, fontSize: 13, color: '#e6c060', marginBottom: 10, lineHeight: 1.4 }}>
+                  {route.to}
+                </div>
+                {route.modes.map((mode, mi) => (
+                  <div key={mi} style={{ marginBottom: mi < route.modes.length - 1 ? 12 : 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                      <span style={{
+                        fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 999, flexShrink: 0,
+                        background: mode.type === 'Walk' ? 'rgba(46,125,82,0.3)' : 'rgba(30,95,180,0.3)',
+                        color: mode.type === 'Walk' ? '#5DD99A' : '#7BC4FF',
+                        border: `1px solid ${mode.type === 'Walk' ? 'rgba(93,217,154,0.35)' : 'rgba(123,196,255,0.35)'}`,
+                      }}>
+                        {mode.type}
+                      </span>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: '#F8F3EC' }}>{mode.time}</span>
+                      <span style={{ fontSize: 12, color: 'rgba(248,243,236,0.35)', marginLeft: 'auto' }}>{mode.cost}</span>
+                    </div>
+                    <div style={{ fontSize: 12, color: 'rgba(248,243,236,0.5)', lineHeight: 1.55, marginBottom: 6 }}>{mode.detail}</div>
+                    <a
+                      href={mode.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600,
+                        padding: '4px 12px', borderRadius: 999, textDecoration: 'none',
+                        background: 'rgba(255,255,255,0.08)', color: 'rgba(248,243,236,0.65)',
+                        border: '1px solid rgba(255,255,255,0.15)',
+                      }}
+                    >
+                      📍 Open in Google Maps
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Fancy dinner callout */}

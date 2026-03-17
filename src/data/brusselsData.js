@@ -35,6 +35,7 @@ export const BRUSSELS_DAYS = [
         detail: 'Drop bags at the hotel near Grand Place. Most hotels allow early luggage drop.',
         booking: 'easy',
         bookingText: 'Already booked',
+        directionsUrl: 'https://maps.google.com/?saddr=Brussels+Midi+Station&daddr=Rue+du+Marché+aux+Herbes+9+Brussels&travelmode=transit',
       },
       {
         icon: '🏛️',
@@ -101,6 +102,27 @@ export const BRUSSELS_DAYS = [
       badge: 'fine',
     },
     activities: [
+      {
+        icon: '🚶',
+        time: '09:00',
+        title: "Sandeman's Free Walking Tour",
+        detail: 'Tip-based walking tour starting at Grand Place. Great introduction to Brussels — the Lower Town, Manneken Pis, Sablon, and the hidden alleyways. ~2.5 hrs.',
+        booking: 'easy',
+        bookingText: 'Free — tip the guide',
+        bookingUrl: 'https://www.neweuropetours.eu/brussels/en/brussels-free-tour/',
+        directionsUrl: 'https://maps.google.com/?saddr=Rue+du+Marché+aux+Herbes+9+Brussels&daddr=Grand+Place+Brussels&travelmode=walking',
+      },
+      {
+        icon: '🍫',
+        time: '09:30',
+        title: 'Choco-Story Chocolate Museum',
+        detail: 'Brussels\' dedicated chocolate museum — the full history of Belgian chocolate, live demonstrations, and tasting at the end. 45–60 min. Fun for all.',
+        booking: 'easy',
+        bookingText: 'Buy at door',
+        bookingUrl: 'https://choco-story-brussels.be/en/',
+        bookingNote: 'Ticket ~€10. Near Rue de la Tête d\'Or, 5 min from Grand Place.',
+        directionsUrl: 'https://maps.google.com/?saddr=Rue+du+Marché+aux+Herbes+9+Brussels&daddr=Choco-Story+Brussels&travelmode=walking',
+      },
       {
         icon: '🎨',
         time: '10:00',
@@ -207,6 +229,7 @@ export const BRUSSELS_DAYS = [
         bookingText: 'Buy day of at station',
         bookingUrl: 'https://www.belgiantrain.be/en',
         bookingNote: 'Return ticket ~€16–20. Trains run frequently so no need to pre-book specific times.',
+        directionsUrl: 'https://maps.google.com/?saddr=Rue+du+Marché+aux+Herbes+9+Brussels&daddr=Brussels+Midi+Station&travelmode=walking',
       },
       {
         icon: '⛵',
@@ -296,6 +319,15 @@ export const BRUSSELS_DAYS = [
     },
     activities: [
       {
+        icon: '🛍️',
+        time: '08:00',
+        title: 'Jeu de Balle Flea Market',
+        detail: 'Brussels\' best flea market in the Marolles district. Antiques, vintage clothing, old books, junk treasures. Open every morning 6am–2pm. Go early for the best finds.',
+        booking: 'easy',
+        bookingText: 'Free to browse — just go',
+        directionsUrl: 'https://maps.google.com/?saddr=Rue+du+Marché+aux+Herbes+9+Brussels&daddr=Place+du+Jeu+de+Balle+Brussels&travelmode=walking',
+      },
+      {
         icon: '⚛️',
         time: '10:00',
         title: 'Atomium',
@@ -304,6 +336,7 @@ export const BRUSSELS_DAYS = [
         bookingText: 'Book online — quicker entry',
         bookingUrl: 'https://atomium.be/en/visit/tickets',
         bookingNote: 'Ticket ~€16. Allow 1.5–2 hours. Nearby: Mini-Europe (scale models of European landmarks) if you want to extend the visit.',
+        directionsUrl: 'https://maps.google.com/?saddr=Rue+du+Marché+aux+Herbes+9+Brussels&daddr=Atomium+Brussels&travelmode=transit',
       },
       {
         icon: '🌿',
@@ -324,6 +357,17 @@ export const BRUSSELS_DAYS = [
         bookingText: 'Museum ticket at door',
         bookingUrl: 'https://hortamuseum.be/en/visit/',
         bookingNote: 'Horta Museum ticket ~€12. Self-guided neighbourhood walks are free — pick up a map at the Tourist Office.',
+      },
+      {
+        icon: '🍺',
+        time: '15:30',
+        title: 'Cantillon Brewery',
+        detail: 'Brussels\' most famous lambic brewery — one of the last traditional gueuze producers in the world. Self-guided tour includes tastings of the sour, wild-fermented beers. Unique and unmissable.',
+        booking: 'easy',
+        bookingText: 'Buy at door — ~€10',
+        bookingUrl: 'https://www.cantillon.be/en/visit',
+        bookingNote: 'Open Mon–Sat 10:00–17:00. Arrive before 16:00 to allow time for the tour.',
+        directionsUrl: 'https://maps.google.com/?saddr=Rue+du+Marché+aux+Herbes+9+Brussels&daddr=Cantillon+Brewery+Brussels&travelmode=walking',
       },
       {
         icon: '🍷',
@@ -426,6 +470,7 @@ export const BRUSSELS_DAYS = [
         detail: 'Brussels Airport (BRU) is 25 min by train from Brussels-Central. Eurostar to London from Brussels-Midi. Allow plenty of time — security at BRU can be slow.',
         booking: 'easy',
         bookingText: 'Already booked',
+        directionsUrl: 'https://maps.google.com/?saddr=Rue+du+Marché+aux+Herbes+9+Brussels&daddr=Brussels+Midi+Station&travelmode=walking',
       },
     ],
     extras: [

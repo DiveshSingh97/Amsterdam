@@ -132,6 +132,22 @@ export default function DayCard({ day, votes, onVote, liveWeather }) {
                         🎟️ Book Now
                       </a>
                     )}
+                    {act.directionsUrl && (
+                      <a
+                        href={act.directionsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          display: 'inline-flex', alignItems: 'center', gap: 4,
+                          fontSize: 12, color: '#5B7FA6', textDecoration: 'none',
+                          padding: '4px 10px', borderRadius: 999,
+                          border: '1px solid #C5D8EF', background: '#F0F5FB',
+                          minHeight: 44,
+                        }}
+                      >
+                        🗺️ Directions
+                      </a>
+                    )}
                   </div>
                   {act.bookingUrl && act.bookingNote && (
                     <div style={{ fontSize: 12, color: '#888', marginTop: 5, lineHeight: 1.5, fontStyle: 'italic' }}>
