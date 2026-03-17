@@ -17,18 +17,18 @@ export default function FallingPetals() {
     resize()
     window.addEventListener('resize', resize)
 
-    // Petal colours — various shades of green, very low opacity
+    // Petal colours — pink sakura tones
     const colors = [
-      'rgba(45, 106, 79, 0.18)',
-      'rgba(52, 168, 83, 0.14)',
-      'rgba(27, 67, 50, 0.16)',
-      'rgba(74, 160, 94, 0.12)',
-      'rgba(30, 95, 74, 0.15)',
-      'rgba(86, 130, 89, 0.13)',
+      'rgba(255, 183, 197, 0.75)',
+      'rgba(255, 153, 180, 0.70)',
+      'rgba(240, 120, 155, 0.65)',
+      'rgba(255, 210, 220, 0.80)',
+      'rgba(250, 170, 190, 0.70)',
+      'rgba(235, 130, 165, 0.68)',
     ]
 
     // How many petals — fewer on mobile
-    const petalCount = window.innerWidth < 640 ? 0 : window.innerWidth < 1024 ? 8 : 18
+    const petalCount = window.innerWidth < 640 ? 0 : window.innerWidth < 1024 ? 12 : 28
 
     // Petal class
     class Petal {
@@ -44,7 +44,7 @@ export default function FallingPetals() {
         this.speedX = Math.random() * 0.4 - 0.2   // gentle sideways drift
         this.rotation = Math.random() * Math.PI * 2
         this.rotationSpeed = (Math.random() - 0.5) * 0.012
-        this.opacity = Math.random() * 0.18 + 0.06 // 6–24% opacity max
+        this.opacity = Math.random() * 0.4 + 0.4   // 40–80% opacity — clearly visible
         this.wobble = Math.random() * Math.PI * 2
         this.wobbleSpeed = Math.random() * 0.018 + 0.008
         this.color = colors[Math.floor(Math.random() * colors.length)]
@@ -88,7 +88,7 @@ export default function FallingPetals() {
 
         // Subtle centre vein line
         ctx.beginPath()
-        ctx.strokeStyle = 'rgba(27, 67, 50, 0.15)'
+        ctx.strokeStyle = 'rgba(200, 80, 110, 0.3)'
         ctx.lineWidth = 0.5
         ctx.moveTo(0, -h * 0.8)
         ctx.lineTo(0, h * 0.8)
@@ -131,7 +131,7 @@ export default function FallingPetals() {
         width: '100%',
         height: '100%',
         pointerEvents: 'none',   // never blocks clicks or scrolling
-        zIndex: 0,               // behind everything
+        zIndex: 9999,            // floats above all content
         opacity: 1,
       }}
     />
